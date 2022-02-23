@@ -12,25 +12,7 @@ you get a few files that look all screwed up!
 
 ## Before Starting
 
-We'll be using image files as resources to test our converter. To make sure we can run and debug our tests in IntelliJ, 
-do the following: 
-
-Update the Working Directory for `PrimePhotoConverterManualTester`:
-1. Open 'Run' -> 'Edit Configurations' from the menu
-2. Select 'PrimePhotoConverterManualTester' from the list of applications in the left panel
-3. Set 'Working Directory' to be the path to your Unit 4 Snippets package, not the workspace (the path may vary based 
-   on how your workspace is set up, but may look something like `/Volumes/workplace/<workspace name>/src/<alias>ATAClassroomSnippets_U4`
-4. Select 'Apply' and rerun
-
-Mark the `src/resources` folder as a resources root:
-1. Right click the folder
-2. Select 'Mark Directory as'
-3. Choose 'Resources Root'
-    * Do not select 'unmark as...' since that means they already are marked as resource roots, and IntelliJ should be 
-    able to access files within those folders.
-
-Now try out the converter! Run the main method in `PrimePhotoConverterManualTester`. If you have any trouble running 
-it, double check that you've completed the above steps. When it finishes running open up the `src/output` folder. 
+We'll be using image files as resources to test our converter. Run the main method in `PrimePhotoConverterManualTester`. When it finishes running open up the `src/output` folder. 
 You should see a few dalmatian files, one for sepia, one for greyscale, and one for inversion. Take a look - we somehow 
 made a dalmatian puppy not cute! If you want to see a cute sepia dalmatian, run the other test in the main method that we
 have commented out. The result file will be in the `src/output` folder. We have a timestamp in the path, so the results 
@@ -40,11 +22,10 @@ We could really use some help getting this fixed. Let's walk you through the cod
 
 ## Code Walk Through
 A request to convert a photo is received in the `ConvertPrimePhotoActivity` class. With this being a POC, we haven't
-developed our Coral model yet so we haven't created any formal Request/Result objects for the `handleRequest`
+developed our Lambda function yet so we haven't created any formal Request/Result objects for the `handleRequest`
 method. First we load the image into memory. This could take a while and use up a lot of memory depending on the photo, 
 so we really only want to do this once. We use a static method in the `PrimePhotoUtil` class to load the photo. That 
-class has been around for a pretty long time, and has always worked so we're pretty sure the bug isn't there. The in 
-memory image is saved in a `PrimePhoto`. If you take a look at that class, it defines the image's dimensions and holds 
+class has been around for a pretty long time, and has always worked so we're pretty sure the bug isn't there. The in-memory image is saved in a `PrimePhoto`. If you take a look at that class, it defines the image's dimensions and holds 
 all its `Pixel`s in a `List`. The `type` field is related to Java's image libraries. We keep it around so we know how 
 to re-save the photo. A `Pixel` represents one tiny, little speck in our photo. An image is just a grid of `Pixel`s. 
 Each `Pixel` has an x and y coordinate and a color associated with it. We store the color in a class called `RGB`. 
@@ -91,6 +72,6 @@ Note: You do not need to check any of your files in the `src/output` directory. 
 while you are testing and you find it distracting, feel free to delete any of the files. 
 
 ## Hints
-* [A strategy to write thread safe code](./hints/hint-00.md)
-* [Can I edit method signatures?](./hints/hint-01.md)
-* [The prime-photo, pixel, and rgb tests pass but my integ tests do not](./hints/hint-02.md)
+* [A strategy to write thread safe code](./src/com/amazon/ata/immutabilityandfinal/classroom/primephoto/hints/hint_00.md)
+* [Can I edit method signatures?](./src/com/amazon/ata/immutabilityandfinal/classroom/primephoto/hints/hint_01.md)
+* [The prime-photo, pixel, and rgb tests pass but my integ tests do not](./src/com/amazon/ata/immutabilityandfinal/classroom/primephoto/hints/hint_02.md)

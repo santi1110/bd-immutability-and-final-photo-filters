@@ -70,8 +70,8 @@ public class ConvertPrimePhotoActivity {
 
     // This is a different way to submit a runnable. We will learn about ExecutorService next unit.
     //
-    // For now you can take away:
-    // executorService.submit(concurrentConverter, null) will start a thread to execute the provided runnable
+    // For now, you just need to know that `executorService.submit(concurrentConverter, null)` will
+    // start a thread to execute the provided runnable
     //
     // Rather than using logic that joins threads as a way to wait for the thread to complete, we get
     // back a Future object that we can use to force our code to wait on the result. These Future
