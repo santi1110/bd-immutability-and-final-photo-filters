@@ -22,7 +22,7 @@ public class PrimePhotoConverterManualTester {
             ConversionType.GREYSCALE, ConversionType.SEPIA));
 
         // PARTICIPANTS: uncomment the below line to run a test that converts an image to a single filter type.
-        // runTest("src/resources/dalmatian.jpg", ImmutableList.of(ConversionType.SEPIA));
+//         runTest("src/resources/dalmatian.jpg", ImmutableList.of(ConversionType.SEPIA));
     }
 
     private static void runTest(String filePath, ImmutableList<ConversionType> conversions) {
