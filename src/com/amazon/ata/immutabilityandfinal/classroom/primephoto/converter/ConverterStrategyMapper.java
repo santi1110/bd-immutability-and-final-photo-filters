@@ -13,7 +13,7 @@ import javax.inject.Inject;
  */
 public final class ConverterStrategyMapper {
     private final Map<ConversionType, PrimePhotoConverter> converterMap = ImmutableMap.of(
-        ConversionType.SEPIA, new SepiaConverter(),
+     /*   ConversionType.SEPIA, new SepiaConverter(),*/
         ConversionType.GREYSCALE, new GreyscaleConverter(),
         ConversionType.INVERSION, new InversionConverter()
     );
