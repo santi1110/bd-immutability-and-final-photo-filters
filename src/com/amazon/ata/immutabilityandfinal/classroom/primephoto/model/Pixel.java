@@ -5,19 +5,19 @@ import java.util.Objects;
 /**
  * Represents a single point in an image. Each pixel has a location in the image, and an associated RGB color.
  */
-public class Pixel {
-    private int x;
-    private int y;
-    private RGB rgb;
+public final class Pixel {
+    private final int x;
+    private final int y;
+    private final RGB rgb;
 
     public Pixel(int x, int y, RGB rgb) {
         this.x = x;
         this.y = y;
-        this.rgb = rgb;
+        this.rgb = new RGB(rgb.getRed(), rgb.getGreen(), rgb.getBlue(), rgb.getTransparency());
     }
 
     public RGB getRGB() {
-        return rgb;
+        return new RGB(rgb.getRed(), rgb.getGreen(), rgb.getBlue(), rgb.getTransparency());
     }
 
     public int getX() {
